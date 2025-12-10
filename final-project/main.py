@@ -55,7 +55,7 @@ class Plane(pygame.sprite.Sprite):
         self.image = plane_images[self.image_index // 10]
 
         # Gravity
-        self.vel += 0.7
+        self.vel += 0.5
         if self.vel > 7:
             self.vel = 7
         if self.rect.y < 500:
@@ -125,7 +125,7 @@ def quit_game():
 def main():
     global score, scroll
 
-    # Instantiate plane
+    # Initiate plane
     plane = pygame.sprite.GroupSingle()
     plane.add(Plane())
 
