@@ -11,6 +11,10 @@ win_height = 720
 win_width = 551
 window = pygame.display.set_mode((win_width, win_height))
 
+# Audio
+pygame.mixer.music.load("assets/Vine Boom.mp3")
+pygame.mixer.music.set_volume(0.2)
+
 # Images
 plane_images = [pygame.image.load("assets/plane_down.png"),
                pygame.image.load("assets/plane_mid.png"),
@@ -182,6 +186,7 @@ def main():
         collision_towers = pygame.sprite.spritecollide(plane.sprites()[0], towers, False)
         collision_ground = pygame.sprite.spritecollide(plane.sprites()[0], ground, False)
         if collision_towers or collision_ground:
+            pygame.mixer.music.play()
             plane.sprite.is_alive = False
             if collision_ground:
                 window.blit(game_over_image, (win_width // 2 - game_over_image.get_width() // 2,
