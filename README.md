@@ -11,7 +11,7 @@ A simple Flappy-Bird–style game with inspiration of the historical event of 9/
 Requirements: You must have Python installed and preferably a code editor like PyCharm.
 
 1. Clone the repository 
-2. In the terminal, navigate to the directory where the repository was cloned, e.g., `C:\Users\(PycharmProjects)\submission\finals-project`
+2. In the terminal, navigate to the directory where the repository was cloned, e.g., `C:\Users\(PycharmProjects)\submission`
 3. Create a virtual environment, activate it, and install pygame by running the following commands in the terminal:
     ```bash
     python -m venv venv #This creates a virtual environment
