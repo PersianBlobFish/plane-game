@@ -13,8 +13,11 @@ SCREEN_HEIGHT = GRID_HEIGHT * BLOCK_SIZE
 BLACK = (0, 0, 0)
 GREEN = (0, 200, 0)
 RED = (200, 0, 0)
+BLUE = (0, 0, 200)
+YELLOW = (200, 200, 0)
 WHITE = (255, 255, 255)
 DARK_GRAY = (40, 40, 40)
+
 
 
 class Snake:
@@ -65,7 +68,7 @@ class Snake:
     def draw(self, surface):
         for (x, y) in self.body:
             rect = pygame.Rect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-            pygame.draw.rect(surface, GREEN, rect)
+            pygame.draw.rect(surface, color_select, rect)
             pygame.draw.rect(surface, DARK_GRAY, rect, 1)  # outline
 
 
@@ -101,6 +104,10 @@ def main():
     pygame.display.set_caption("Snake Game")
     clock = pygame.time.Clock()
     font = pygame.font.SysFont("Arial", 24)
+
+    global color_select
+    color = [GREEN, RED, WHITE, BLUE, YELLOW]
+    color_select = color[0]
 
     snake = Snake()
     food = Food(snake.body)
@@ -144,6 +151,9 @@ def main():
 
             # If ate food, spawn new food and increase score
             if will_eat:
+                if color_select == color[-1]:
+                    color_select = color[0]
+                color_select = color[color.index(color_select) + 1]
                 score += 1
                 food.randomize_position(snake.body)
 
