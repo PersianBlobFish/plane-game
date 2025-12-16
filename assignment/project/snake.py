@@ -88,7 +88,7 @@ class Food:
     def draw(self, surface):
         x, y = self.position
         rect = pygame.Rect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-        pygame.draw.rect(surface, RED, rect)
+        pygame.draw.rect(surface, color_select1, rect)
 
 
 def draw_grid(surface):
@@ -106,8 +106,10 @@ def main():
     font = pygame.font.SysFont("Arial", 24)
 
     global color_select
+    global color_select1
     color = [GREEN, RED, WHITE, BLUE, YELLOW]
     color_select = color[0]
+    color_select1 = color[1]
 
     snake = Snake()
     food = Food(snake.body)
@@ -154,6 +156,9 @@ def main():
                 if color_select == color[-1]:
                     color_select = color[0]
                 color_select = color[color.index(color_select) + 1]
+                if color_select1 == color[-1]:
+                    color_select1 = color[0]
+                color_select1 = color[color.index(color_select1) + 1]
                 score += 1
                 food.randomize_position(snake.body)
 
