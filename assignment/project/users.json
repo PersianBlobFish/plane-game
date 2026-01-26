@@ -1,12 +1,8 @@
 {
-  "users": [
-    {
-      "username": "alice",
-      "password": "alice123"
-    },
-    {
-      "username": "bob",
-      "password": "bob456"
-    }
-  ]
+    "users": [
+        {
+            "username": "Nguyen",
+            "password": "Nguyentran703"
+        }
+    ]
 }
